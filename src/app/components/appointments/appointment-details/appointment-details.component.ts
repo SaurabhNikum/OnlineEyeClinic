@@ -12,6 +12,8 @@ export class AppointmentDetailsComponent implements OnInit {
 
   id:number;
   appointment:Appointment=new Appointment();
+ 
+
 
 
   constructor(private route: ActivatedRoute,private appointmentService:AppointmentService,private router:Router) { }
