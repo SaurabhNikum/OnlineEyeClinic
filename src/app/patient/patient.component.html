@@ -1,0 +1,88 @@
+<div class="container col-md-6 offset-md-3">
+    <div class="jumbotron">
+    <h3> Welcome {{patient.name}}</h3>
+    <a routerLink="../../home">Log Out</a>
+</div>
+   
+    <div>
+        <div>
+            <label> <b> Patient Id: </b></label> {{patient.patientId}}
+        </div>
+        <div>
+            <label> <b> Patient Name: </b></label> {{patient.name}}
+        </div>
+        <div>
+            <label> <b> Age: </b></label> {{patient.age}}
+        </div>
+        <div>
+            <label> <b> Email: </b></label> {{patient.email}}
+        </div>
+        <div>
+            <label> <b> Mobile: </b></label> {{patient.mobile}}
+        </div>
+        <div>
+            <label> <b> Username: </b></label> {{patient.userName}}
+        </div>
+        <div>
+            <label> <b> Password: </b></label> {{patient.password}}
+        </div>
+        <div>
+            <label> <b> Address: </b></label> {{patient.address}}
+        </div>
+    </div>
+    <button style="margin-left: 10px" class="btn btn-info">Update</button>
+</div>
+
+
+<div class="row">
+<section id="alist">
+    <a name=Appointments> </a>
+<div class="col-md-6">
+    <h2 class="jumbotron"> Appointment List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th> Appointment Id</th>
+                <th> Doctor Id </th>
+                <th> Appointment Date</th>
+                <th> Appointment Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let appointment of appointments">
+                <td> {{ appointment.id }} </td>
+                <td> {{ appointment.doctorId }} </td>
+                <td> {{ appointment.appointmentDate | date:fulldate }} </td>
+                <td> {{ appointment.appointmentTime }} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</section>
+
+<section id="rlist">
+<a name=Reports> </a>
+<div class=" col-md-6">
+    <h2 class="jumbotron"> Report List</h2>
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th> Report Id</th>
+                <th> Test Id </th>
+                <th> Report Date</th>
+                <th> Description </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let report of reports" >
+                <td> {{ report.id }} </td>
+                <td> {{ report.testId}} </td>
+                <td> {{ report.reportDate }}</td>
+                <td> {{ report.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+</div>
+

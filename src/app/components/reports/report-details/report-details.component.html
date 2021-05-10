@@ -1,0 +1,38 @@
+<div class="container ">
+    <div class="col-sm-12">
+    <div class="jumbotron" style="margin-top: 50px;">
+        <h1 style="text-align: center;"> Report Details</h1>
+        <button style="margin-left: 260px ;text-align:center;" class="btn btn-info" (click)="goToReportList()">Go Back</button>
+        <button style="margin-left: 10px;" class="btn btn-info" routerLink="../../admin-service">Admin Page</button>
+        <button style="margin-left: 10px;" class="btn btn-info" routerLink="../../home">LogOut</button>
+        
+    <div style="text-align: center; padding-top: 30px;">
+        <div>
+            <label> <b> Report Id: </b></label> {{report.id}}
+        </div>
+        <div>
+            <label> <b> Paient Id: </b></label> {{report.patientId}}
+        </div>
+        <div>
+            <label> <b> Test Id: </b></label> {{report.testId}}
+        </div>
+        <div>
+            <label> <b> Date: </b></label> {{report.reportDate}}
+        </div>
+        <div>
+            <label> <b> Description: </b></label> {{report.description}}
+        </div>
+        <div>
+            <label> <b> Visual Acuity: </b></label> {{report.visualAcuity}}
+        </div>
+        <div>
+            <label> <b> Visual Acuity For Near: </b></label> {{report.visualAcuityForNear}}
+        </div>
+        <div>
+            <label> <b> Visual Acuity For Distance: </b></label> {{report.visualAcuityForDistance}}
+        </div>
+        <button style="margin-top: 5px;" class="btn btn-success" onclick="window.print()">Print</button>
+    </div>
+</div>
+   </div>
+</div>

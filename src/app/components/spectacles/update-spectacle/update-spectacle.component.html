@@ -1,0 +1,28 @@
+<div class="col-md-6 offset-md-3">
+    <div class="jumbotron">
+        <h1 style="text-align: center;"> Update Spectacle </h1>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Model </label>
+            <input type="text" class ="form-control" id = "model"
+                [(ngModel)] = "spectacle.model" name = "model">
+        </div>
+    
+        <div class="form-group">
+            <label> Description </label>
+            <input type="text" class ="form-control" id = "description"
+                [(ngModel)] = "spectacle.description" name = "description">
+        </div>
+    
+        <div class="form-group">
+            <label> Cost </label>
+            <input type="text" class ="form-control" id = "cost"
+                [(ngModel)] = "spectacle.cost" name = "cost">
+        </div>
+    
+        <button class = "btn btn-success float-right"  type ="submit">Update</button>
+        <button class = "btn btn-success float-left"  routerLink="../../spectacle-list">Back</button>
+    
+    </form>
+    </div>
