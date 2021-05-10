@@ -1,0 +1,29 @@
+<div class="container col-md-6">
+    <h2 class="jumbotron"> Report List</h2>
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th> Report Id</th>
+                <th> Patient Id </th>
+                <th> Test Id</th>
+                <th> Report Date</th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let report of reports" >
+                <td> {{ report.id }} </td>
+                <td> {{ report.patientId}} </td>
+                <td> {{ report.testId}} </td>
+                <td> {{ report.reportDate }}</td>
+                <td>
+                    <button (click) = " reportDetails(report.id)" class = "btn btn-success" style="margin-left: 10px"> Details</button>
+                    <button (click) = "updateReport(report.id)" class = "btn btn-info" style="margin-left: 10px"> Update</button>
+                    <button (click) = "deleteReport(report.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

@@ -1,0 +1,28 @@
+<div class="container col-md-6 offset-md-3">
+    <h3 class="jumbotron"> Appointment Details</h3>
+    <div>
+        <div>
+            <label> <b> Appointment Id: </b></label> {{appointment.id}}
+        </div>
+        <div>
+            <label> <b> Doctor Id: </b></label> {{appointment.doctorId}}
+        </div>
+        <div>
+            <label> <b> Patient Id: </b></label> {{appointment.patientId}}
+        </div>
+        <div>
+            <label> <b> Date: </b></label> {{appointment.appointmentDate}}
+        </div>
+        <div>
+            <label> <b> Time: </b></label> {{appointment.appointmentTime}}
+        </div>
+        <div>
+            <label> <b> Consultation Fee: </b></label> {{appointment.consultationFee}}
+        </div>
+        
+
+    </div>
+
+    <button style="margin-left: 10px" class="btn btn-success" (click)="goToAppointmentList()">Appointment List</button>
+    <button style="margin-left: 10px" class="btn btn-danger" (click)="deleteAppointment(appointment.id)">Delete</button>
+</div>

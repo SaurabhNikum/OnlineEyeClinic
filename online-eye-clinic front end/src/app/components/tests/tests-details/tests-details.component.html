@@ -1,0 +1,25 @@
+<div class="container col-md-6 offset-md-3">
+    <h3 class="jumbotron"> Test Details</h3>
+    <div>
+        <div>
+            <label> <b> Test Id: </b></label> {{tests.testId}}
+        </div>
+        <div>
+            <label> <b> Test Name: </b></label> {{tests.name}}
+        </div>
+        <div>
+            <label> <b> Test Type: </b></label> {{tests.type}}
+        </div>
+        <div>
+            <label> <b> Test Description: </b></label> {{tests.description}}
+        </div>
+        <div>
+            <label> <b> Cost: </b></label> {{tests.cost}}
+        </div>
+    </div>
+
+    <button style="margin-left: 10px" class="btn btn-success" (click)="goToTestsList()">Test List</button>
+    <button style="margin-left: 10px" class="btn btn-info" (click)="updateTests(tests.testId)">Update</button>
+    <button style="margin-left: 10px" class="btn btn-danger" (click)="deleteTests(tests.testId)">Delete</button>
+</div>
+

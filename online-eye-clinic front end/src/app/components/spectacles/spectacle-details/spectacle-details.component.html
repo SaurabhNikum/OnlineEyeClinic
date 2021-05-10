@@ -1,0 +1,21 @@
+<div class="container col-md-6 offset-md-3">
+    <h3 class="jumbotron"> Spectacle Details</h3>
+    <div>
+        <div>
+            <label> <b> Spectacle Id: </b></label> {{spectacle.id}}
+        </div>
+        <div>
+            <label> <b> Model: </b></label> {{spectacle.model}}
+        </div>
+        <div>
+            <label> <b> Description: </b></label> {{spectacle.description}}
+        </div>
+        <div>
+            <label> <b> Cost: </b></label> {{spectacle.cost}}
+        </div>
+    </div>
+
+    <button style="margin-left: 10px" class="btn btn-success" (click)="goToSpectacleList()">Spectacle List</button>
+    <button style="margin-left: 10px" class="btn btn-info" (click)="updateSpectacle(spectacle.id)">Update</button>
+    <button style="margin-left: 10px" class="btn btn-danger" (click)="deleteSpectacle(spectacle.id)">Delete</button>
+</div>

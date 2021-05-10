@@ -1,0 +1,34 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="jumbotron"> Add Test </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Test Name </label>
+            <input type="text" class ="form-control" id = "name"
+                [(ngModel)] = "tests.name" name = "testName">
+        </div>
+    
+        <div class="form-group">
+            <label> Test Type </label>
+            <input type="text" class ="form-control" id = "type"
+                [(ngModel)] = "tests.type" name = "type">
+        </div>
+    
+        <div class="form-group">
+            <label> Description </label>
+            <input type="text" class ="form-control" id = "description"
+                [(ngModel)] = "tests.description" name = "description">
+        </div>
+
+        <div class="form-group">
+            <label> Cost </label>
+            <input type="text" class ="form-control" id = "cost"
+                [(ngModel)] = "tests.cost" name = "cost">
+        </div>
+    
+        <button class = "btn btn-success" style="margin-left: 10px" type ="submit">Add</button>
+        <button class="btn btn-success" style="margin-left: 10px" (click)="goToTestsList()">Test List</button>
+    
+    </form>
+    
+    </div> 
