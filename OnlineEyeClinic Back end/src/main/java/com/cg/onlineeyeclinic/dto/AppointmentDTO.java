@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
@@ -35,6 +36,10 @@ public class AppointmentDTO
 	private int patientId;
 	
 	@NotNull
+	@Email
+	private String patientEmail;
+	
+	@NotNull
 	private int doctorId;
 	
 	@NotNull
@@ -45,8 +50,17 @@ public class AppointmentDTO
 	
 	
 	
+	
 	public LocalDate getAppointmentDate() {
 		return appointmentDate;
+	}
+
+	public String getPatientEmail() {
+		return patientEmail;
+	}
+
+	public void setPatientEmail(String patientEmail) {
+		this.patientEmail = patientEmail;
 	}
 
 	public int getPatientId() {

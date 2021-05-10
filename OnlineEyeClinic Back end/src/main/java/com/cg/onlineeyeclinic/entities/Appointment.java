@@ -26,10 +26,13 @@ public class Appointment
 	private int id;
 	
 	@Column(name="Patient_Id")
-	int patientId;
+	private int patientId;
+	
+	@Column(name="Patient_Email")
+	private String patientEmail;
 	
 	@Column(name="Doctor_Id")
-	int doctorId;
+	private int doctorId;
 	
 	
 	@Column(name="Appointment_Date")
@@ -41,6 +44,9 @@ public class Appointment
 
 	@Column(name="Fee")
 	private double consultationFee;
+	
+	@Column(name="Appointment_Request")
+	private boolean appointmentRequest;
 	
 	
 	@JsonIgnore
@@ -54,11 +60,29 @@ public class Appointment
 	
 	
 	//getters and setters
+	
+	
 	 
 	public int getId() {
 		return id;
 	}
 	
+	public String getPatientEmail() {
+		return patientEmail;
+	}
+
+	public void setPatientEmail(String patientEmail) {
+		this.patientEmail = patientEmail;
+	}
+
+	public boolean isAppointmentRequest() {
+		return appointmentRequest;
+	}
+
+	public void setAppointmentRequest(boolean appointmentRequest) {
+		this.appointmentRequest = appointmentRequest;
+	}
+
 	public int getPatientId() {
 		return patientId;
 	}

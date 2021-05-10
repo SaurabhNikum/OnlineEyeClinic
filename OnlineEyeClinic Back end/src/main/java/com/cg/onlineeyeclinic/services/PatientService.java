@@ -37,7 +37,6 @@ public interface PatientService {
 	//get patient by name
 	List<Patient> getAllPatientsByName(String name) throws NameNotFoundException;
 	
-
 	//get patient by username
 	Patient getPatientByUserName(String name) throws NameNotFoundException;
 	

@@ -26,6 +26,7 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.3.9.RELEASE'
 	// https://mvnrepository.com/artifact/com.github.jmnarloch/modelmapper-spring-boot-starter
 	implementation group: 'com.github.jmnarloch', name: 'modelmapper-spring-boot-starter', version: '1.0.1'
+	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
 	
 }
 

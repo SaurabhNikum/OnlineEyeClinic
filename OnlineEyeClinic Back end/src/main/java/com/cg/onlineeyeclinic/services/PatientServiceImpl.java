@@ -4,6 +4,7 @@ package com.cg.onlineeyeclinic.services;
 import java.util.List;
 import java.util.function.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.cg.onlineeyeclinic.entities.Appointment;
 import com.cg.onlineeyeclinic.entities.Patient;
@@ -153,5 +154,7 @@ public class PatientServiceImpl implements PatientService
 		public Patient getPatientByUserName(String name) throws NameNotFoundException {
 			return patientRepository.findByUserName(name);
 		}
+
+	
 		
 }

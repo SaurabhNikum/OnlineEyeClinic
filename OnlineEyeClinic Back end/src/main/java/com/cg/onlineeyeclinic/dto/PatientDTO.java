@@ -18,8 +18,8 @@ public class PatientDTO
 	private String name;
 	
 	@NotNull
-	@Min(value = 0, message = "Age should not be less than 0")
-    @Max(value = 100, message = "Age should not be greater than 100")
+	@Min(value = 1, message = "Age should not be less than 0")
+    @Max(value = 150, message = "Age should not be greater than 100")
 	private int age;
 	
 	@NotNull
@@ -31,24 +31,29 @@ public class PatientDTO
 	private String email;
 	
 	@NotNull
-	@Pattern(regexp = "^[a-zA-Z]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$",message="please provide valid username.It can contains alphanumeric and _.It can be started only with alphabets ")
+	//@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,20}$ ",message="please provide valid username.It can contains alphanumeric and _.It can be started only with alphabets ")
 	private String userName;
 	
 	@NotNull
-	@Pattern(regexp ="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,10}$",
+	@Pattern(regexp ="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&]).{8,20}$",
 	message="It can be minimum of 8 characters and maximum 10 characters.It contains at least one digit,one lowercase alphabet,one uppercase alphabet,one special character which includes !@#$%&*()-+=^.")
 	private String password;
 	
 	@NotNull
 	@Size(min=2,max =200 ,message="Address should have atleast 2 characters and max to max 200 characters ")
 	private String address;
+	
+	
 
 	//getters and setters 
+	
+	
 	
 	
 	public String getName() {
 		return name;
 	}
+	
 	public long getId() {
 		return id;
 	}
