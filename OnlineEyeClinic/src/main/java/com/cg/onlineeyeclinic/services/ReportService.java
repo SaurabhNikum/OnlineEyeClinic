@@ -11,7 +11,7 @@ import com.cg.onlineeyeclinic.exceptions.ReportNotFoundException;
 public interface ReportService {
 
 	//add report
-	Report createReport(int patientId, int testId, Report report) throws IdNotFoundException;
+	Report createReport(Report report) throws IdNotFoundException;
 
 	//get report
 	Report getReport(int reportId) throws IdNotFoundException;
@@ -20,7 +20,7 @@ public interface ReportService {
 	List<Report> getAllReport() throws ReportNotFoundException;
 
 	//update report 
-	Report updateReport(int patientId, int testId, Report report) throws IdNotFoundException;
+	Report updateReport(int id, Report report) throws IdNotFoundException;
 
 	//remove report
 	String deleteReport(int reportId) throws IdNotFoundException;

@@ -38,10 +38,10 @@ public class SpectacleServiceImpl implements SpectacleService
 	
 	//update spectacle
 	@Override
-	public Spectacle updateSpectacle(int spectacleId,Spectacle spectacle) throws IdNotFoundException
+	public Spectacle updateSpectacle(int id,Spectacle spectacle) throws IdNotFoundException
 	{
-		Supplier<IdNotFoundException> supplier=()->new IdNotFoundException(detail+spectacleId);
-		Spectacle updatedSpectacle=spectacleRepository.findById(spectacleId).orElseThrow(supplier);
+		Supplier<IdNotFoundException> supplier=()->new IdNotFoundException(detail+id);
+		Spectacle updatedSpectacle=spectacleRepository.findById(id).orElseThrow(supplier);
 		updatedSpectacle.setCost(spectacle.getCost());
 		updatedSpectacle.setDescription(spectacle.getDescription());
 		updatedSpectacle.setModel(spectacle.getModel());

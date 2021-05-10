@@ -2,20 +2,21 @@ package com.cg.onlineeyeclinic.dto;
 
 import java.time.LocalDate;
 import javax.validation.constraints.NotNull;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 
 //************************************Report DTO Class**************************************//
 
 public class ReportDTO 
 {
+	private int id;
+	
 	@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	@JsonDeserialize(using = LocalDateDeserializer.class)
-	@JsonSerialize(using = LocalDateSerializer.class) 
+	private int patientId;
+	
+	@NotNull
+	private int testId;
+	
+	@NotNull
 	private LocalDate reportDate;
 	
 	@NotNull
@@ -29,11 +30,38 @@ public class ReportDTO
 	
 	@NotNull
 	private String visualAcuityForDistance;
+	
+	
 
 
-	//getters and setters
+	//getters and setters.
+		
 	public LocalDate getReportDate() {
 		return reportDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
+	}
+
+	public int getTestId() {
+		return testId;
+	}
+
+	public void setTestId(int testId) {
+		this.testId = testId;
 	}
 
 	public void setReportDate(LocalDate reportDate) {

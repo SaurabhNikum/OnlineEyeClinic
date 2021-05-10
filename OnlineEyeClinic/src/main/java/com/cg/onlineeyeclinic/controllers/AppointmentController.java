@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,9 +24,9 @@ import com.cg.onlineeyeclinic.services.AppointmentService;
 import com.cg.onlineeyeclinic.services.ConvertDTOToEntity;
 
 //***********************************Appointment Controller Class****************************************//
-
+@CrossOrigin
 @RestController
-@RequestMapping("/appointment")
+@RequestMapping("/onlineeyeclinic")
 public class AppointmentController 
 {
 	@Autowired
@@ -34,38 +35,38 @@ public class AppointmentController
 	@Autowired
 	private ConvertDTOToEntity con;
 	
-	@GetMapping("/get/{id}")
+	@GetMapping("/appointment/{id}")
 	public ResponseEntity<Appointment> viewAppointment(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(appointmentService.getAppointment(id),HttpStatus.FOUND);
+		return ResponseEntity.ok(appointmentService.getAppointment(id));
 	}
 	
-	@GetMapping("/get")
+	@GetMapping("/appointment")
 	public ResponseEntity<List<Appointment>> getAllAppointment() throws AppointmentNotFoundException 
 	{
-		return new ResponseEntity<>(appointmentService.getAllAppointment(),HttpStatus.OK);
+		return ResponseEntity.ok(appointmentService.getAllAppointment());
 	}
 	
-	@GetMapping("/getbydoctor/{id}")
+	@GetMapping("/appointmentbydoctor/{id}")
 	public ResponseEntity<List<Appointment>> getAllAppointmentByDoctorId(@PathVariable int id) throws IdNotFoundException, AppointmentNotFoundException
 	{
-		return new ResponseEntity<>(appointmentService.getAllAppointmentByDoctorId(id),HttpStatus.OK);
+		return ResponseEntity.ok(appointmentService.getAllAppointmentByDoctorId(id));
 	}
 	
-	@GetMapping("/getbypatient/{id}")
+	@GetMapping("/appointmentbypatient/{id}")
 	public ResponseEntity<List<Appointment>> getAllAppointmentByPatientId(@PathVariable int id) throws IdNotFoundException, AppointmentNotFoundException
 	{
-		return new ResponseEntity<>(appointmentService.getAllAppointmentByPatientId(id),HttpStatus.OK);
+		return ResponseEntity.ok(appointmentService.getAllAppointmentByPatientId(id));
 	}
 	
-	@PostMapping("/create/{doctorId}/{patientId}")
-	public ResponseEntity<Appointment> bookAppointment(@PathVariable int doctorId,@PathVariable int patientId,@Valid @RequestBody AppointmentDTO appointmentDTO) throws IdNotFoundException
+	@PostMapping("/appointment")
+	public ResponseEntity<Appointment> bookAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) throws IdNotFoundException
 	{
 		Appointment appointment=con.convertToAppointment(appointmentDTO);
-		return new ResponseEntity<>(appointmentService.bookAppointment(doctorId,patientId,appointment),HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(appointmentService.bookAppointment(appointment),HttpStatus.ACCEPTED);
 	}
 	
-	@DeleteMapping("/cancel/{id}")
+	@DeleteMapping("/appointment/{id}")
 	public ResponseEntity<String> cancelAppointment(@PathVariable int id) throws IdNotFoundException
 	{
 		return new ResponseEntity<>(appointmentService.cancelAppointment(id),HttpStatus.ACCEPTED);

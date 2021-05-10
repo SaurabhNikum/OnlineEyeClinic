@@ -30,14 +30,6 @@ public class DoctorServiceImpl implements DoctorService
 	@Override
 	public Doctor addDoctor(Doctor doctor) throws UserNameAlreadyExistException
 	{
-		List<Doctor> doctors=doctorRepository.findAll();
-		for(Doctor dc:doctors)
-		{
-			if(dc.getUserName().equals(doctor.getUserName()))
-			{
-				throw new UserNameAlreadyExistException("provided username is already taken...Please modify your username !");
-			}
-		}
 		return doctorRepository.save(doctor);
 	}
 	
@@ -67,16 +59,7 @@ public class DoctorServiceImpl implements DoctorService
 		Supplier<IdNotFoundException> supplier = () -> new IdNotFoundException(detail);
 		Doctor updatedDoctor = doctorRepository.findById(doctorId).orElseThrow(supplier);
 		updatedDoctor.setName(doctor.getName());
-		List<Doctor> doctors = doctorRepository.findAll();
-		for (Doctor dc : doctors) {
-			if (dc != doctor) {
-				if (dc.getUserName().equals(doctor.getUserName())) {
-					throw new UserNameAlreadyExistException("username already exist.....Please modify your username !");
-				}
-			} else {
-				updatedDoctor.setUserName(doctor.getUserName());
-			}
-		}
+		updatedDoctor.setUserName(doctor.getUserName());
 		updatedDoctor.setPassword(doctor.getPassword());
 		updatedDoctor.setEmail(doctor.getEmail());
 		updatedDoctor.setAddress(doctor.getAddress());

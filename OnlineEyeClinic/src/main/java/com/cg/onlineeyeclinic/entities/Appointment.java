@@ -25,6 +25,11 @@ public class Appointment
 	@Column(name="Appointment_Id")
 	private int id;
 	
+	@Column(name="Patient_Id")
+	int patientId;
+	
+	@Column(name="Doctor_Id")
+	int doctorId;
 	
 	@Column(name="Appointment_Date")
 	private LocalDate appointmentDate;
@@ -48,20 +53,29 @@ public class Appointment
 	
 	
 	//getters and setters
-	public int getPatientId()
-	{
-		return patient.getPatientId();
-	}
-	
-	public int getDoctorId()
-	{
-		return doctor.getDoctorId();
-	}
 	 
 	public int getId() {
 		return id;
 	}
 	
+	public int getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
+	}
+
+	
+
+	public int getDoctorId() {
+		return doctorId;
+	}
+
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

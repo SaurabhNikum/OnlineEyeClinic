@@ -44,11 +44,11 @@ public class Patient
 	private String address;
 	
 	@JsonIgnore
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="patient",orphanRemoval=true)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="patient")
 	private List<Report> reports;
 	
 	@JsonIgnore
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="patient",orphanRemoval=true)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="patient")
 	private List<Appointment> appointments;
 	
 	

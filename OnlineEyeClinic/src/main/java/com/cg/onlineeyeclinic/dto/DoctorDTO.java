@@ -10,6 +10,9 @@ import javax.validation.constraints.Size;
 
 public class DoctorDTO 
 {
+	
+	long id;
+	
 	@NotNull 
 	@Size(min=2,max =50 ,message="Name should have atleast 2 characters and max to max 50 characters ") 
 	private String name; 
@@ -51,6 +54,19 @@ public class DoctorDTO
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	
+
+
+	public long getId() {
+		return id;
+	}
+
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 

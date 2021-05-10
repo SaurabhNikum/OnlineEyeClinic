@@ -18,19 +18,20 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 
 public class AppointmentDTO
 {
+	long id;
 	
 	@NotNull
 	@Future(message="please provide future date")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	@JsonDeserialize(using = LocalDateDeserializer.class)
-	@JsonSerialize(using = LocalDateSerializer.class) 
 	private LocalDate appointmentDate;
 	
 	@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-	@JsonDeserialize(using = LocalTimeDeserializer.class)
-	@JsonSerialize(using = LocalTimeSerializer.class)
 	private LocalTime appointmentTime;
+	
+	@NotNull
+	private int patientId;
+	
+	@NotNull
+	private int doctorId;
 	
 	@NotNull
 	@Column(name="Fee")
@@ -38,8 +39,27 @@ public class AppointmentDTO
 
 	
 	//getters and setters
+	
+	
+	
 	public LocalDate getAppointmentDate() {
 		return appointmentDate;
+	}
+
+	public int getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
+	}
+
+	public int getDoctorId() {
+		return doctorId;
+	}
+
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
 	}
 
 	public void setAppointmentDate(LocalDate appointmentDate) {
@@ -60,6 +80,14 @@ public class AppointmentDTO
 
 	public void setConsultationFee(double consultationFee) {
 		this.consultationFee = consultationFee;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	

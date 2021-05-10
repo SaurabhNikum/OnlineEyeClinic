@@ -52,6 +52,6 @@ sonarqube {
 	properties {
 		property "sonar.projectName", "CGOnlineEyeClinic"
 		property "sonar.host.url", "http://localhost:9000"
-		property "sonar.login", "35402ff836ae574d2757fcb9ef11dc7ec8fe112c"
+		property "sonar.login", "3bd18ed68d6c14722da5dee7207b431b8da84926"
 	}
 }

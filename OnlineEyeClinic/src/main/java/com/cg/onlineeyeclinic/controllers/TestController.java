@@ -2,8 +2,8 @@ package com.cg.onlineeyeclinic.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.cg.onlineeyeclinic.dto.TestDTO;
 import com.cg.onlineeyeclinic.entities.Tests;
 import com.cg.onlineeyeclinic.exceptions.IdNotFoundException;
@@ -23,53 +22,55 @@ import com.cg.onlineeyeclinic.services.TestService;
 
 //***********************************Test Controller Class****************************************//
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/onlineeyecare")
 public class TestController 
 {
 	@Autowired
 	private TestService testService;
 	
 	@Autowired
-	private ConvertDTOToEntity con;
+	private ConvertDTOToEntity cnv;
 	
-	@GetMapping("/get/{id}")
+	
+	@GetMapping("/tests/{id}")
 	public ResponseEntity<Tests> getTest(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(testService.getTest(id),HttpStatus.FOUND);
+		return ResponseEntity.ok(testService.getTest(id));
 	}
 	
-	@GetMapping("/get")
+	@GetMapping("/tests")
 	public ResponseEntity<List<Tests>> getAllTest() throws TestNotFoundException
 	{
-		return new ResponseEntity<>(testService.showAllTest(),HttpStatus.OK);
+		return ResponseEntity.ok(testService.showAllTest());
 	}
 	
 
-	@GetMapping("/getbyname/{name}")
+	@GetMapping("/testsbymodel/{name}")
 	public ResponseEntity<List<Tests>> getAllTestByName(@PathVariable String name) throws NameNotFoundException
 	{
-		return new ResponseEntity<>(testService.showAllTestByName(name),HttpStatus.OK);
+		return ResponseEntity.ok(testService.showAllTestByName(name));
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/tests")
 	public ResponseEntity<Tests> addTest(@RequestBody TestDTO testDTO)
 	{
-		Tests test=con.convertToTests(testDTO);
-		return new ResponseEntity<>(testService.addTest(test),HttpStatus.CREATED);
+		Tests tests=cnv.convertToTests(testDTO);
+		return ResponseEntity.ok(testService.addTest(tests));
 	}
 	
-	@PutMapping("/update/{id}")
+	@PutMapping("/tests/{id}")
 	public ResponseEntity<Tests> updateTest(@PathVariable int id,@RequestBody TestDTO testDTO) throws IdNotFoundException
 	{
-		Tests test=con.convertToTests(testDTO);
-		return new ResponseEntity<>(testService.updateTest(id,test),HttpStatus.ACCEPTED);
+		Tests tests=cnv.convertToTests(testDTO);
+		return ResponseEntity.ok(testService.updateTest(id,tests));
 	}
 	
-	@DeleteMapping("/remove/{id}")
+	@DeleteMapping("/tests/{id}")
 	public ResponseEntity<String> removeTest(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(testService.removeTest(id),HttpStatus.ACCEPTED);
+		return ResponseEntity.ok(testService.removeTest(id));
 	}
 	
 	

@@ -1,11 +1,10 @@
 package com.cg.onlineeyeclinic.controllers;
 
 import java.util.List;
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.cg.onlineeyeclinic.dto.DoctorDTO;
 import com.cg.onlineeyeclinic.entities.Appointment;
 import com.cg.onlineeyeclinic.entities.Doctor;
@@ -27,9 +25,9 @@ import com.cg.onlineeyeclinic.services.ConvertDTOToEntity;
 import com.cg.onlineeyeclinic.services.DoctorService;
 
 //***********************************Doctor Controller Class****************************************//
-
+@CrossOrigin
 @RestController
-@RequestMapping("/doctor")
+@RequestMapping("/onlineeyeclinic")
 public class DoctorController 
 {
 	@Autowired
@@ -38,47 +36,47 @@ public class DoctorController
 	@Autowired
 	private ConvertDTOToEntity con;
 	
-	@GetMapping("/get/{id}")
+	@GetMapping("/doctor/{id}")
 	public ResponseEntity<Doctor> getDoctor(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(doctorService.getDoctor(id),HttpStatus.FOUND);
+		return ResponseEntity.ok(doctorService.getDoctor(id));
 	}
 	
-	@GetMapping("/getbyname/{name}")
+	@GetMapping("/doctorbyname/{name}")
 	public ResponseEntity<List<Doctor>> getAllDoctorByName(@PathVariable String name)throws NameNotFoundException
 	{
-		return new ResponseEntity<>(doctorService.getAllDoctorsByName(name),HttpStatus.FOUND);
+		return ResponseEntity.ok(doctorService.getAllDoctorsByName(name));
 	}
 	
-	@GetMapping("/getallappointmentbydoctor/{id}")
-	public ResponseEntity<List<Appointment>> getAllAppointmentByDoctor(@PathVariable int id) throws IdNotFoundException, AppointmentNotFoundException
-	{
-		return new ResponseEntity<>(doctorService.getAllAppointmentByDoctorId(id),HttpStatus.OK);
-	}
+//	@GetMapping("/appointmentbydoctor/{id}")
+//	public ResponseEntity<List<Appointment>> getAllAppointmentByDoctor(@PathVariable int id) throws IdNotFoundException, AppointmentNotFoundException
+//	{
+//		return ResponseEntity.ok(doctorService.getAllAppointmentByDoctorId(id));
+//	}
 	
-	@GetMapping("/get")
+	@GetMapping("/doctor")
 	public ResponseEntity<List<Doctor>> getAllDoctor() throws DoctorNotFoundException
 	{
-		return new ResponseEntity<>(doctorService.getAllDoctor(),HttpStatus.OK);
+		return ResponseEntity.ok(doctorService.getAllDoctor());
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/doctor")
 	public ResponseEntity<Doctor> addDoctor(@Valid @RequestBody DoctorDTO doctorDTO) throws UserNameAlreadyExistException
 	{
 		Doctor doctor=con.convertToDoctor(doctorDTO);
-		return new ResponseEntity<>(doctorService.addDoctor(doctor),HttpStatus.CREATED);
+		return ResponseEntity.ok(doctorService.addDoctor(doctor));
 	}
 	
-	@PutMapping("/update/{doctorId}")
+	@PutMapping("/doctor/{doctorId}")
 	public ResponseEntity<Doctor> updateDoctor(@PathVariable int doctorId,@Valid @RequestBody DoctorDTO doctorDTO) throws IdNotFoundException, UserNameAlreadyExistException
 	{
 		Doctor doctor=con.convertToDoctor(doctorDTO);
-		return new ResponseEntity<>(doctorService.updateDoctor(doctorId,doctor),HttpStatus.ACCEPTED);
+		return ResponseEntity.ok(doctorService.updateDoctor(doctorId,doctor));
 	} 
 	
-	@DeleteMapping("/remove/{doctorId}")
+	@DeleteMapping("/doctor/{doctorId}")
 	public ResponseEntity<String> removeDoctor(@PathVariable int doctorId) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(doctorService.removeDoctor(doctorId),HttpStatus.ACCEPTED);
+		return ResponseEntity.ok(doctorService.removeDoctor(doctorId));
 	}
 }

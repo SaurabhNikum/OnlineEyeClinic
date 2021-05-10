@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,52 +34,54 @@ import com.cg.onlineeyeclinic.services.PatientService;
 
 //***********************************Patient Controller Class****************************************//
 
+@CrossOrigin
 @RestController
-@RequestMapping("/patient")
+@RequestMapping("/onlineeyeclinic")
 public class PatientController 
 {
 	@Autowired
 	private PatientService patientService;
 	
 	@Autowired
-	private ConvertDTOToEntity con;
+	private ConvertDTOToEntity cnv;
 	
-	@GetMapping("/get/{id}")
+	
+	@GetMapping("/patient/{id}")
 	public ResponseEntity<Patient> getPatient(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(patientService.getPatient(id),HttpStatus.FOUND);
+		return ResponseEntity.ok(patientService.getPatient(id));
 	}
 	
-	@GetMapping("/get")
+	@GetMapping("/patient")
 	public ResponseEntity<List<Patient>> getAllPatient() throws PatientNotFoundException
 	{
-		return new ResponseEntity<>(patientService.getAllPatient(),HttpStatus.OK);
+		return ResponseEntity.ok(patientService.getAllPatient());
 	}
 	
-	@GetMapping("/getbyname/{name}")
+	@GetMapping("/patientbyname/{name}")
 	public ResponseEntity<List<Patient>> getAllPatientByName(@PathVariable String name) throws NameNotFoundException
 	{
-		return new ResponseEntity<>(patientService.getAllPatientsByName(name),HttpStatus.OK);
+		return ResponseEntity.ok(patientService.getAllPatientsByName(name));
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/patient")
 	public ResponseEntity<Patient> addPatient(@Valid @RequestBody PatientDTO patientDTO) throws UserNameAlreadyExistException
 	{
-		Patient patient=con.convertToPatient(patientDTO);
-		return new ResponseEntity<>(patientService.addPatinet(patient),HttpStatus.CREATED);
+		Patient patient=cnv.convertToPatient(patientDTO);
+		return ResponseEntity.ok(patientService.addPatinet(patient));
 	}
 	
-	@PutMapping("/update/{id}")
+	@PutMapping("/patient/{id}")
 	public ResponseEntity<Patient> updatePatient(@PathVariable int id,@Valid @RequestBody PatientDTO patientDTO) throws IdNotFoundException, UserNameAlreadyExistException
 	{
-		Patient patient=con.convertToPatient(patientDTO);
-		return new ResponseEntity<>(patientService.updatePatient(id,patient),HttpStatus.ACCEPTED);
+		Patient patient=cnv.convertToPatient(patientDTO);
+		return ResponseEntity.ok(patientService.updatePatient(id,patient));
 	}
 	
-	@DeleteMapping("/remove/{id}")
+	@DeleteMapping("/patient/{id}")
 	public ResponseEntity<String> deletePatient(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(patientService.deletePatient(id),HttpStatus.ACCEPTED);
+		return ResponseEntity.ok(patientService.deletePatient(id));
 	}
 	
 	@GetMapping("/testavailable")

@@ -2,7 +2,6 @@ package com.cg.onlineeyeclinic.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,55 +19,57 @@ import com.cg.onlineeyeclinic.exceptions.SpectacleNotFoundException;
 import com.cg.onlineeyeclinic.services.ConvertDTOToEntity;
 import com.cg.onlineeyeclinic.services.SpectacleService;
 
+
 //***********************************Spectacle Controller Class****************************************//
 
-@CrossOrigin
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/spectacle")
+@RequestMapping("/onlineeyecare")
 public class SpectacleController 
 {
 	@Autowired
 	private SpectacleService spectacleService;
 	
 	@Autowired
-	private ConvertDTOToEntity con;
+	private ConvertDTOToEntity cnv;
 	
-	@GetMapping("/get/{id}")
+	@GetMapping(path="/spectacle/{id}")
 	public ResponseEntity<Spectacle> getSpectacle(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(spectacleService.getSpectacle(id),HttpStatus.FOUND);
+		return ResponseEntity.ok(spectacleService.getSpectacle(id));
 	}
 	
-	@GetMapping("/get")
+	@GetMapping("/spectacle")
 	public ResponseEntity<List<Spectacle>> getAllSpectacle() throws SpectacleNotFoundException
 	{
-		return new ResponseEntity<>(spectacleService.getAllSpectacle(),HttpStatus.OK);
+		return ResponseEntity.ok(spectacleService.getAllSpectacle());
 	}
 	
-	@GetMapping("/getbymodel/{model}")
+	@GetMapping("/spectaclebymodel/{model}")
 	public ResponseEntity<List<Spectacle>> getAllSpectacle(@PathVariable String model)
 	{
-		return new ResponseEntity<>(spectacleService.getAllSpectacleByModel(model),HttpStatus.OK);
+		return ResponseEntity.ok(spectacleService.getAllSpectacleByModel(model));
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/spectacle")
 	public ResponseEntity<Spectacle> addSpectacle(@RequestBody SpectacleDTO spectacleDTO)
 	{
-		Spectacle spectacle=con.convertToSpectacle(spectacleDTO);
-		return new ResponseEntity<>(spectacleService.addSpectacle(spectacle),HttpStatus.CREATED);
+		Spectacle spectacle=cnv.convertToSpectacle(spectacleDTO);
+		return ResponseEntity.ok(spectacleService.addSpectacle(spectacle));
 	}
 	
-	@PutMapping("/update/{id}")
+	@PutMapping("/spectacle/{id}")
 	public ResponseEntity<Spectacle> updateSpectacle(@PathVariable int id,@RequestBody SpectacleDTO spectacleDTO) throws IdNotFoundException
 	{
-		Spectacle spectacle=con.convertToSpectacle(spectacleDTO);
-		return new ResponseEntity<>(spectacleService.updateSpectacle(id,spectacle),HttpStatus.ACCEPTED);
+		Spectacle spectacle=cnv.convertToSpectacle(spectacleDTO);
+		return ResponseEntity.ok(spectacleService.updateSpectacle(id,spectacle));
 	}
 	
-	@DeleteMapping("/remove/{id}")
+	@DeleteMapping("/spectacle/{id}")
 	public ResponseEntity<String> removeSpectacle(@PathVariable int id) throws IdNotFoundException
 	{
-		return new ResponseEntity<>(spectacleService.removeSpectacle(id),HttpStatus.ACCEPTED);
+		return ResponseEntity.ok(spectacleService.removeSpectacle(id));
 	}
 	
 	

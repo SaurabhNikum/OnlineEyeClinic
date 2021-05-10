@@ -10,7 +10,7 @@ import com.cg.onlineeyeclinic.exceptions.IdNotFoundException;
 public interface AppointmentService {
 
 	//book appointment
-	Appointment bookAppointment(int doctorId,int patientId,Appointment appointment) throws IdNotFoundException;
+	Appointment bookAppointment(Appointment appointment) throws IdNotFoundException;
 
 	//get appointment
 	Appointment getAppointment(int appointmentId) throws IdNotFoundException;

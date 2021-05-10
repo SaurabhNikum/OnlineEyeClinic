@@ -6,6 +6,9 @@ import javax.validation.constraints.NotNull;
 
 public class TestDTO 
 {		
+	
+		long id;
+		
 		@NotNull
 		private String name;
 		
@@ -19,8 +22,17 @@ public class TestDTO
 		private double cost;
 		
 		//getters and setters
+		
+		
+		
 		public String getName() {
 			return name;
+		}
+		public long getId() {
+			return id;
+		}
+		public void setId(long id) {
+			this.id = id;
 		}
 		public void setName(String name) {
 			this.name = name;

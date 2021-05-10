@@ -10,12 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 
 //************************************Report Entity Class**************************************//
 
@@ -28,10 +25,12 @@ public class Report
 	@Column(name="Report_Id")
 	private int id;
 	
+	@Column(name="Patient_Id")
+	private int patientId;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	@JsonDeserialize(using = LocalDateDeserializer.class)
-	@JsonSerialize(using = LocalDateSerializer.class) 
+	@Column(name="Test_Id")
+	private int testId;
+
 	@Column(name="Report_Date")
 	private LocalDate reportDate;
 	
@@ -59,20 +58,29 @@ public class Report
 	
 	
 	//getters and setters
-	public int getPatientId()
-	{
-		return patient.getPatientId();
-	}
 	
-	public int getTestId()
-	{
-		return test.getTestId();
-	}
+
 	
 	public Patient getPatient() {
 		return patient;
 	}
 	
+	public int getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
+	}
+
+	public int getTestId() {
+		return testId;
+	}
+
+	public void setTestId(int testId) {
+		this.testId = testId;
+	}
+
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}

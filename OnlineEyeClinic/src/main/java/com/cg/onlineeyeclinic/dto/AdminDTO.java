@@ -7,6 +7,9 @@ import javax.validation.constraints.Pattern;
 
 public class AdminDTO 
 {
+	
+	long id;
+	
 	@NotNull
 	@Pattern(regexp = "^[a-zA-Z]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$"
 	,message="please provide valid username.It can contains alphanumeric and _.It can be started only with alphabets")
@@ -34,6 +37,15 @@ public class AdminDTO
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	
 	
 	

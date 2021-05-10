@@ -36,15 +36,15 @@ public class AppointmentServiceImpl implements AppointmentService
 	private DoctorService doctorService;
 	//book appointment
 	@Override
-	public Appointment bookAppointment(int doctorId,int patientId,Appointment  appointment) throws IdNotFoundException
+	public Appointment bookAppointment(Appointment  appointment) throws IdNotFoundException
 	{
 		Patient patient;
 		Doctor doctor;
 		List<Appointment> appointments=new ArrayList<>();
-		Supplier<IdNotFoundException> supplier1 = ()->new IdNotFoundException("Patient with : "+patientId+"  id is not available");
-		patient=patientRepository.findById(patientId).orElseThrow(supplier1);
-		Supplier<IdNotFoundException> supplier2 = ()->new IdNotFoundException("Doctor with : "+doctorId+ " id is not available");
-		doctor=doctorRepository.findById(doctorId).orElseThrow(supplier2);
+		Supplier<IdNotFoundException> supplier1 = ()->new IdNotFoundException("Patient with id is not available");
+		patient=patientRepository.findById(appointment.getPatientId()).orElseThrow(supplier1);
+		Supplier<IdNotFoundException> supplier2 = ()->new IdNotFoundException("Doctor with id is not available");
+		doctor=doctorRepository.findById(appointment.getDoctorId()).orElseThrow(supplier2);
 		appointment.setDoctor(doctor);
 		appointment.setPatient(patient);
 		appointmentRepository.save(appointment);

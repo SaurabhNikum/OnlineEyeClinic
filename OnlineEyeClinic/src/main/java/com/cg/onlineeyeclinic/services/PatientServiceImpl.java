@@ -65,14 +65,6 @@ public class PatientServiceImpl implements PatientService
 	@Override
 	public Patient addPatinet(Patient patient) throws UserNameAlreadyExistException
 	{
-		List<Patient> patients=patientRepository.findAll();
-		for(Patient pt:patients)
-		{
-			if(pt.getUserName().equals(patient.getUserName()))
-			{
-				throw new UserNameAlreadyExistException("provided username is already taken....Please modify your username !");
-			}
-		}
 		return patientRepository.save(patient);
 	}
 	
@@ -83,17 +75,6 @@ public class PatientServiceImpl implements PatientService
 			Supplier<IdNotFoundException> supplier = ()->new IdNotFoundException(detail);
 			Patient updatedPatient = patientRepository.findById(patientId).orElseThrow(supplier);
 			updatedPatient.setName(patient.getName());
-			List<Patient> patients = patientRepository.findAll();
-			for (Patient pt : patients) {
-				if (pt != patient) {
-					if (pt.getUserName().equals(patient.getUserName())) {
-						throw new UserNameAlreadyExistException("username already exist.....Please modify your username !");
-					}
-				} else {
-					updatedPatient.setUserName(patient.getUserName());
-				}
-			}
-			updatedPatient.setUserName(patient.getUserName());
 			updatedPatient.setPassword(patient.getPassword());
 			updatedPatient.setAge(patient.getAge());
 			updatedPatient.setEmail(patient.getEmail());

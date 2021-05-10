@@ -36,15 +36,15 @@ public class ReportServiceImpl implements ReportService
 	
 	//add report
 	@Override
-	public Report createReport(int patientId,int testId,Report report) throws IdNotFoundException
+	public Report createReport(Report report) throws IdNotFoundException
 	{
 		Patient patient;
 		Tests test;
 		List<Report> reportList=new ArrayList<>();
-		Supplier<IdNotFoundException> supplier1 = ()->new IdNotFoundException("Patient with given id : "+patientId+" is not available");
-		patient=patientRepository.findById(patientId).orElseThrow(supplier1);
-		Supplier<IdNotFoundException> supplier2=()->new IdNotFoundException("test with given id : "+testId+" is not available");
-		test=testRepository.findById(testId).orElseThrow(supplier2);
+		Supplier<IdNotFoundException> supplier1 = ()->new IdNotFoundException("Patient with given id is not available");
+		patient=patientRepository.findById(report.getPatientId()).orElseThrow(supplier1);
+		Supplier<IdNotFoundException> supplier2=()->new IdNotFoundException("test with given id is not available");
+		test=testRepository.findById(report.getTestId()).orElseThrow(supplier2);
 		report.setPatient(patient);
 		report.setTest(test);
 		report=reportRepository.save(report);
@@ -74,21 +74,24 @@ public class ReportServiceImpl implements ReportService
 	
 	//update report 
 	  @Override
-	public Report updateReport(int patientId,int testId,Report report) throws IdNotFoundException 
+	public Report updateReport(int id,Report report) throws IdNotFoundException 
 	{
 	  Patient patient;
 	  Tests test;
 	  List<Report> reportList=new ArrayList<>();
-	  Supplier<IdNotFoundException> supplier1 = ()->new IdNotFoundException("Patient with given id is not available");
-	  patient=patientRepository.findById(patientId).orElseThrow(supplier1);
-	  Supplier<IdNotFoundException> supplier2=()->new IdNotFoundException("test with given id is not available");
-	  test=testRepository.findById(testId).orElseThrow(supplier2);
 	  Supplier<IdNotFoundException> supplier = ()->new IdNotFoundException(detail); 
-	  Report updatedReport=reportRepository.findById(report.getId()).orElseThrow(supplier);
+	  Report updatedReport=reportRepository.findById(id).orElseThrow(supplier);
+	  Supplier<IdNotFoundException> supplier1 = ()->new IdNotFoundException("Patient with given id is not available");
+	  patient=patientRepository.findById(report.getPatientId()).orElseThrow(supplier1);
+	  Supplier<IdNotFoundException> supplier2=()->new IdNotFoundException("test with given id is not available");
+	  test=testRepository.findById(report.getTestId()).orElseThrow(supplier2);
+	  
 	  updatedReport.setReportDate(report.getReportDate());
 	  updatedReport.setDescription(report.getDescription());
 	  updatedReport.setPatient(patient);
+	  updatedReport.setPatientId(report.getPatientId());
 	  updatedReport.setTest(test);
+	  updatedReport.setTestId(report.getTestId());
 	  updatedReport.setVisualAcuity(report.getVisualAcuity());
 	  updatedReport.setVisualAcuityForNear(report.getVisualAcuityForNear());
 	  updatedReport.setVisualAcuityForDistance(report.getVisualAcuityForDistance()); 

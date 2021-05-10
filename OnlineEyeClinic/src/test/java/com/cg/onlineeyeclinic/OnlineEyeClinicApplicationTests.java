@@ -370,7 +370,7 @@ class OnlineEyeClinicApplicationTests
 			report.setTest(test);
 			report.setPatient(patient);
 			when(reportRepository.save(report)).thenReturn(report);
-			assertEquals(report,reportService.createReport(999, 999, report));
+			assertEquals(report,reportService.createReport(report));
 		}
 		
 		@Test
@@ -422,7 +422,7 @@ class OnlineEyeClinicApplicationTests
 			when(reportRepository.findById(1)).thenReturn(oReport);
 			report.setPatient(patient2);
 			when(reportRepository.save(report)).thenReturn(report);
-			assertEquals(report,reportService.updateReport(999, 999, report));
+			assertEquals(report,reportService.updateReport(1,report));
 		}
 		
 		

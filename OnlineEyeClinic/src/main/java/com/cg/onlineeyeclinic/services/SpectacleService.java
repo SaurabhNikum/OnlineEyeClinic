@@ -16,7 +16,7 @@ public interface SpectacleService {
 	String removeSpectacle(int spectacleId) throws IdNotFoundException;
 
 	//update spectacle
-	Spectacle updateSpectacle(int spectacleId,Spectacle spectacle) throws IdNotFoundException;
+	Spectacle updateSpectacle(int id,Spectacle spectacle) throws IdNotFoundException;
 
 	//get spectacle
 	Spectacle getSpectacle(int spectacleId) throws IdNotFoundException;

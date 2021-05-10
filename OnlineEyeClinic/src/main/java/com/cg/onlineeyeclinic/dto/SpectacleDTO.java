@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 
 public class SpectacleDTO 
 {
+	long id;
+	
 	@NotNull
 	private String model;
 	
@@ -16,8 +18,18 @@ public class SpectacleDTO
 	private double cost;
 	
 	//getters and setters
+	
+	
 	public String getModel() {
 		return model;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public void setModel(String model) {

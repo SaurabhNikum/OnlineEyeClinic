@@ -44,7 +44,7 @@ public class Doctor
 	@Column(name="Address") 
 	private String address; 
 	 
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="doctor",orphanRemoval=true) 
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="doctor") 
 	private List<Appointment> appointments; 
 	
 	 
