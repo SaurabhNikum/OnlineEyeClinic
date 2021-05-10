@@ -19,6 +19,8 @@ describe('AppointmentDetailsComponent', () => {
     fixture.detectChanges();
   });
 
+ 
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
