@@ -1,0 +1,36 @@
+<div style="margin-top: 30px;" class="col-md-6 offset-md-3">
+    <div class="jumbotron">
+        <h1 style="text-align: center;"> Add Test </h1>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Test Name </label>
+            <input required type="text" class ="form-control" id = "name"
+                [(ngModel)] = "tests.name" name = "testName">
+        </div>
+    
+        <div class="form-group">
+            <label> Test Type </label>
+            <input required type="text" class ="form-control" id = "type"
+                [(ngModel)] = "tests.type" name = "type">
+        </div>
+    
+        <div class="form-group">
+            <label> Description </label>
+            <input type="text" class ="form-control" id = "description"
+                [(ngModel)] = "tests.description" name = "description">
+        </div>
+
+        <div class="form-group">
+            <label> Cost </label>
+            <input type="text" class ="form-control" id = "cost"
+                [(ngModel)] = "tests.cost" name = "cost">
+        </div>
+    
+        <button  class = "btn btn-success  float-right" type ="submit">Add</button>
+        <button class = "btn btn-success float-left"  routerLink="../admin-service">Back</button>
+    
+    </form>
+    </div>
+    
+    </div> 

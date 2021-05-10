@@ -1,0 +1,47 @@
+<div class="col-md-6 offset-md-3">
+    <div class="jumbotron">
+    <h1 style="text-align: center;"> Create Appointment </h1>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Patient Id </label>
+            <input disabled type="number" class ="form-control" id = "pId"
+                [(ngModel)] = "appointment.patientId" name = "pId">
+        </div>
+
+        <div class="form-group">
+            <label> Patient Email </label>
+            <input disabled type="email" class ="form-control" id = "pEmail"
+                [(ngModel)] = "appointment.patientEmail" name = "pEmail">
+        </div>
+    
+        <div class="form-group">
+            <label> Doctor Id </label>
+            <input type="number" class ="form-control" id = "dId"
+                [(ngModel)] = "appointment.doctorId" name = "dId">
+        </div>
+
+        <div class="form-group">
+            <label> Appointment Date </label>
+            <input type="date" class ="form-control" id = "aDate"
+                [(ngModel)] = "appointment.appointmentDate" name = "aDate">
+        </div>
+
+        <div class="form-group">
+            <label> Appointment Time</label>
+            <input type="time" class ="form-control" id = "aTime"
+                [(ngModel)] = "appointment.appointmentTime" name = "aTime">
+        </div>
+
+        <div class="form-group">
+            <label> Consultation Fee</label>
+            <input type="number" class ="form-control" id = "cFee"
+                [(ngModel)] = "appointment.consultationFee" name = "cFee">
+        </div>
+    
+        <button  class = "btn btn-success  float-right" type ="submit">Create</button>
+        
+    
+    </form>
+    </div>
+    </div> 

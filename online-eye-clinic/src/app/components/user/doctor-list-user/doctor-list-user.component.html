@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="col-sm-12">
+
+        <div class="jumbotron" style="height: 200px; margin-top: 0%;">
+            <h1 style="text-align: center; margin-top: 0%;"> Doctor List</h1>
+            <button class="btn btn-info" style="margin-left: 320px;" (click)="getDoctor()">All Doctors</button>
+            <button class="btn btn-info" style="margin-left: 10px;" routerLink="../home">Go Back</button>
+            <br>
+            <label style=" font-size: large;margin-right: 10px; margin-left: 200px; padding-top: 10px;"
+                for="date">Search Doctor with Name</label>
+            <input [(ngModel)]="name" type="text">
+            <button (click)="doctorByName()" type="button" class="btn-info">Search</button>
+
+        </div>
+    <table class = "table table-striped" style="text-align: center;">
+        <thead>
+            <tr>
+                <th> Doctor Id</th>
+                <th> Name </th>
+                <th> Consultation Time </th>
+                <th> Mobile No. </th>
+                <th> Email </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let doctor of doctors" >
+                <td> {{ doctor.doctorId}} </td>
+                <td> {{ doctor.name }} </td>
+                <td> {{ doctor.consultationTime }} </td>
+                <td> {{ doctor.mobile }} </td>
+                <td> {{ doctor.email }} </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    

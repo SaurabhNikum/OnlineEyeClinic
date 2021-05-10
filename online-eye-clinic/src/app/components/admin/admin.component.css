@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.nav-back{
+    background: #11dbcf;
+}
+.navbar-brand{
+  color: #000;
+  font-weight: bold;
+  font-size: larger;
+}
+.navbar-brand:hover{
+  color: #fff;
+}
+.nav-link{
+  color: #000;
+  font-weight: bold;  
+  font-size: larger;  
+}
+.nav-link:hover{
+  color:#fff;
+}
+.navbar-toggler{
+  outline: none!important;
+}
+
+.set{
+  width: 20%;
+  height: 15vh;
+}
+
+.btn
+{
+  margin-top: 5px;
+}

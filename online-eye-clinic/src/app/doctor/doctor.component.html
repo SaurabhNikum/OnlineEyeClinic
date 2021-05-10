@@ -1,0 +1,60 @@
+<div class="container col-sd-9 ">
+    <div class="jumbotron">
+        <h1 style="text-align: center;"> Welcome {{doctor.name}}</h1>
+
+        <button class="btn btn-info" style="float: right;" routerLink="../../home">Log Out</button>
+
+        <div>
+            <label> <b> Doctor Id: </b></label> {{doctor.doctorId}}
+        </div>
+        <div>
+            <label> <b> Doctor Name: </b></label> {{doctor.name}}
+        </div>
+        <div>
+            <label> <b> Consultation Time: </b></label> {{doctor.consultationTime}}
+        </div>
+        <div>
+            <label> <b> Email: </b></label> {{doctor.email}}
+        </div>
+        <div>
+            <label> <b> Mobile: </b></label> {{doctor.mobile}}
+        </div>
+        <div>
+            <label> <b> Username: </b></label> {{doctor.userName}}
+        </div>
+        <div>
+            <label> <b> Password: </b></label> {{doctor.password}}
+        </div>
+        <div>
+            <label> <b> Address: </b></label> {{doctor.address}}
+        </div>
+    </div>
+    <button style="margin-left: 10px" (click)="updateDoctor(doctor.doctorId)" class="btn btn-info">Update</button>
+    <button style="margin-left: 10px" (click)="showAppointmentList()" class="btn btn-info">See Appointment</button>
+    <button style="margin-left: 10px" (click)="hideAppointmentList()" class="btn btn-info">Hide Appointment</button>
+
+
+<div class="row " style="margin-top: 40px;">
+    <div class="col-md-12" id="alist">
+        <h1 style="text-align: center; margin-top: 0%;"> Appointment List</h1>
+        <table style="text-align: center;" class="table table-striped">
+        <thead>
+            <tr>
+                <th> Id</th>
+                <th> Patient Id </th>
+                <th> Date</th>
+                <th> Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let appointment of appointments">
+                <td> {{ appointment.id }} </td>
+                <td> {{ appointment.patientId }} </td>
+                <td> {{ appointment.appointmentDate | date:fulldate }} </td>
+                <td> {{ appointment.appointmentTime }} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="col-sd-12">
+
+        <div class="jumbotron" style="height: 200px; margin-top: 0%;">
+            <h1 style="text-align: center; margin-top: 0%;"> Appointment Request List</h1>
+            <button class="btn btn-info" style="margin-left: 10px;float: right;" routerLink="../admin-service">Go Back</button>
+            <button class="btn btn-info" style="margin-left: 10px;float: right;" routerLink="../home">LogOut</button>
+        </div>
+
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th> Request Id</th>
+                    <th> Patient Id </th>
+                    <th> Patient Email</th>
+                    <th> Appointment Request Date</th>
+                    <th> Appointment Request Time</th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointmentRequest of appointmentRequests">
+                    <td> {{ appointmentRequest.requestId }} </td>
+                    <td> {{ appointmentRequest.patientId}} </td>
+                    <td> {{ appointmentRequest.patientEmail }} </td>
+                    <td> {{ appointmentRequest.appointmentDate | date:fulldate }} </td>
+                    <td> {{ appointmentRequest.appointmentTime}} </td>
+                    <td>
+                        <button style="margin-left: 10px" class="btn btn-success"
+                            (click)="acceptAppointmentRequest(appointmentRequest.requestId,appointmentRequest.patientId,appointmentRequest.appointmentDate,
+                            appointmentRequest.appointmentTime,appointmentRequest.patientEmail)">Accept</button>
+                        <button style="margin-left: 10px" class="btn btn-danger"
+                            (click)="deleteAppointmentRequest(appointmentRequest.requestId,appointmentRequest.appointmentDate,
+                            appointmentRequest.appointmentTime,appointmentRequest.patientEmail)">Delete</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
