@@ -1,0 +1,39 @@
+2021-05-05 09:16:40,766 INFO com.cg.onlineeyeclinic.OnlineEyeClinicApplication [restartedMain] Starting OnlineEyeClinicApplication using Java 1.8.0_121 on DESKTOP-JUAPLI4 with PID 6496 (D:\Capgemini\Joining Confirm Folder\After Joining\Project\our implementation\git\OnlineEyeClinic\OnlineEyeClinic\bin\main started by admin in D:\Capgemini\Joining Confirm Folder\After Joining\Project\our implementation\git\OnlineEyeClinic\OnlineEyeClinic)
+2021-05-05 09:16:40,768 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
+2021-05-05 09:16:40,795 INFO com.cg.onlineeyeclinic.OnlineEyeClinicApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-05-05 09:16:40,935 INFO org.springframework.boot.devtools.restart.ChangeableUrls [restartedMain] The Class-Path manifest attribute in C:\Users\admin\.gradle\caches\modules-2\files-2.1\com.oracle.database.jdbc\ojdbc8\19.8.0.0\df9cff9b91c47d06b9a0482d566ee2d83a03e586\ojdbc8-19.8.0.0.jar referenced one or more files that do not exist: file:/C:/Users/admin/.gradle/caches/modules-2/files-2.1/com.oracle.database.jdbc/ojdbc8/19.8.0.0/df9cff9b91c47d06b9a0482d566ee2d83a03e586/oraclepki.jar
+2021-05-05 09:16:40,935 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-05 09:16:40,936 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-05 09:16:49,511 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-05 09:16:50,033 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 461 ms. Found 7 JPA repository interfaces.
+2021-05-05 09:16:53,599 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-05-05 09:16:53,705 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-05 09:16:53,707 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-05-05 09:16:53,708 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-05-05 09:16:53,958 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-05-05 09:16:53,959 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 13021 ms
+2021-05-05 09:16:55,974 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-05 09:16:56,185 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-05-05 09:16:57,815 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-05 09:16:59,820 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPoolBooks - Starting...
+2021-05-05 09:17:07,449 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPoolBooks - Start completed.
+2021-05-05 09:17:07,710 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+2021-05-05 09:19:30,074 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-05 09:19:30,142 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-05 09:19:30,369 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-05-05 09:19:34,640 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-05 09:19:36,097 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-05 09:19:37,109 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-05-05 09:19:37,206 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-05 09:19:38,709 INFO com.cg.onlineeyeclinic.OnlineEyeClinicApplication [restartedMain] Started OnlineEyeClinicApplication in 178.645 seconds (JVM running for 181.072)
+2021-05-05 09:19:55,760 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-05 09:19:55,760 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-05-05 09:19:55,764 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 4 ms
+2021-05-05 18:11:23,858 WARN com.zaxxer.hikari.pool.HikariPool [HikariPoolBooks housekeeper] HikariPoolBooks - Thread starvation or clock leap detected (housekeeper delta=3h18m26s825ms588µs700ns).
+2021-05-05 18:12:05,406 WARN com.zaxxer.hikari.pool.HikariPool [HikariPoolBooks housekeeper] HikariPoolBooks - Thread starvation or clock leap detected (housekeeper delta=54s925ms623µs700ns).
+2021-05-05 21:34:57,699 WARN com.zaxxer.hikari.pool.HikariPool [HikariPoolBooks housekeeper] HikariPoolBooks - Thread starvation or clock leap detected (housekeeper delta=1h48m50s837ms854µs800ns).
+2021-05-05 23:17:16,333 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(2)-127.0.0.1] Application shutdown requested.
+2021-05-05 23:17:22,210 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [RMI TCP Connection(2)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-05 23:17:22,805 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(2)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-05 23:17:24,065 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(2)-127.0.0.1] HikariPoolBooks - Shutdown initiated...
+2021-05-05 23:17:24,099 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(2)-127.0.0.1] HikariPoolBooks - Shutdown completed.
