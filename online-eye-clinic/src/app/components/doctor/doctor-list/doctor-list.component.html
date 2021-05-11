@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="col-sd-12">
+    <div class="jumbotron" style="height: 200px; margin-top: 0%;">
+        <h1 style="text-align: center; margin-top: 0%; font-size: 40px;"> Doctor List</h1>
+        <button class="btn btn-info float-right" style="margin-left: 10px;margin-top: 13px;" routerLink="../home">LogOut</button>
+        <button class="btn btn-info float-right" style="margin-left: 10px;margin-top: 13px;" routerLink="../admin-service">Go Back</button>
+        <button class="btn btn-info float-right" style="margin-top: 13px;" (click)="getDoctor()">Doctor List</button>
+        <br>
+        <label style=" font-size: large;">Search Doctor with Name</label>
+        <input [(ngModel)]="name" id="name" type="text">
+        <button (click)="doctorByName()" class=" btn-info">Search</button>
+
+    </div>
+    <table class = "table table-striped" style="text-align: center;">
+        <thead>
+            <tr>
+                <th> Doctor Id</th>
+                <th> Name </th>
+                <th> Consultation Time </th>
+                <th> Mobile No. </th>
+                <th> Email </th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let doctor of doctors" >
+                <td> {{ doctor.doctorId}} </td>
+                <td> {{ doctor.name }} </td>
+                <td> {{ doctor.consultationTime }} </td>
+                <td> {{ doctor.mobile }} </td>
+                <td> {{ doctor.email }} </td>
+                
+                <td>
+                    <button (click) = " doctorDetails(doctor.doctorId)" class = "btn btn-success" style="margin-left: 10px"> Details</button>
+                    <button (click) = "deleteDoctor(doctor.doctorId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+    </div>

@@ -1,0 +1,27 @@
+
+body
+{
+    background-size:cover;
+    background-image: url("https://c1.wallpaperflare.com/preview/582/367/703/background-glasses-wood-background-wood-texture.jpg");
+}
+
+h1{
+    text-align: left;
+    font-weight: bold;
+    padding-top: 30px;
+    margin-left: 50px;
+}
+
+label
+{
+    margin-left: 70px;
+    text-align: center;
+    font-family: 300;
+}
+
+button
+{
+    margin-top: 10px;
+    float: right;
+    margin-right: 5px;
+}

@@ -1,0 +1,27 @@
+<!-- Spectacle Details Component -->
+
+<body>
+<div class="container ">
+    <div class="col-sm-9 offset-md-3">
+
+        <h1> Spectacle Details</h1>
+    
+        <div>
+            <label> <b> Spectacle Id: </b></label> {{spectacle.id}}
+        </div>
+        <div>
+            <label> <b> Model: </b></label> {{spectacle.model}}
+        </div>
+        <div>
+            <label> <b> Description: </b></label> {{spectacle.description}}
+        </div>
+        <div>
+            <label> <b> Cost: </b></label> {{spectacle.cost}}
+        </div>
+
+        <button class="btn btn-info" routerLink="../../home">LogOut</button>
+        <button class="btn btn-info" routerLink="../../admin-service">Admin Page</button>
+        <button class="btn btn-info" (click)="goToSpectacleList()">Go Back</button><br>
+    </div>
+</div>>
+</body>

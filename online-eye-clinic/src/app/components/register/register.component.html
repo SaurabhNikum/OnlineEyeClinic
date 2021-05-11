@@ -1,0 +1,147 @@
+<!-- Registeration Page -->
+
+<body>
+<div class="col-md-6 offset-md-1">
+  <div >
+    <h1 style="text-align: center;color:white;">Patient Registration Form</h1>
+    <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()">
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Enter Your Name Here.." formControlName="name" class="form-control" />
+        <div *ngIf="registrationForm.get('name').errors  && isSubmitted">
+          <div *ngIf="registrationForm.get('name').hasError('required')">
+            <span style="color: red;">Please Enter Your Name.</span>
+          </div>
+          <div *ngIf="registrationForm.get('name').hasError('minlength')">
+            <span style="color: red;"> Name requied atleast 2 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('name').hasError('maxlength')">
+            <span style="color: red;"> Name requied only 50 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('name').hasError('pattern')">
+            <span style="color: red;">Only characters are allowed.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Age</label>
+        <input type="text" placeholder="Enter Your Age Here.." formControlName="age" class="form-control" />
+        <div *ngIf="registrationForm.get('age').errors  && isSubmitted">
+          <div *ngIf="registrationForm.get('age').hasError('required')">
+            <span style="color: red;">Please Enter Your Age.</span>
+          </div>
+          <div *ngIf="registrationForm.get('age').hasError('min')">
+            <span style="color: red;"> Minimum age can be 1 year.</span>
+          </div>
+          <div *ngIf="registrationForm.get('age').hasError('max')">
+            <span style="color: red;"> Maximum age can be 150 year.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="text" placeholder="Enter Mobile Number Here.." formControlName="phoneNumber"
+          class="form-control" />
+        <div *ngIf="registrationForm.get('phoneNumber').errors && isSubmitted">
+          <div *ngIf="registrationForm.get('phoneNumber').hasError('required')">
+            <span style="color: red;">Please Enter Phone Number.</span>
+          </div>
+          <div *ngIf="registrationForm.get('phoneNumber').hasError('minlength')">
+            <span style="color: red;">Phone Number requied atleast 10 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('phoneNumber').hasError('maxlength')">
+            <span style="color: red;">Phone Number requied only 10 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('phoneNumber').hasError('pattern')">
+            <span style="color: red;">Only Numbers are allowed.</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="text" placeholder="Enter Email Address Here.." formControlName="email" class="form-control" />
+        <div *ngIf="registrationForm.get('email').errors && isSubmitted">
+          <div *ngIf="registrationForm.get('email').hasError('required')">
+            <span style="color: red;">Please Enter Email.</span>
+          </div>
+          <div *ngIf="registrationForm.get('email').hasError('minlength')">
+            <span style="color: red;">The email requied atleast 8 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('email').hasError('maxlength')">
+            <span style="color: red;">The email requied only 80 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('email').hasError('pattern')">
+            <span style="color: red;">The Email is not valid.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" placeholder="Enter Username Here.." formControlName="username" class="form-control" />
+        <div *ngIf="registrationForm.get('username').errors  && isSubmitted">
+          <div *ngIf="registrationForm.get('username').hasError('required')">
+            <span style="color: red;">Please Enter Username.</span>
+          </div>
+          <div *ngIf="registrationForm.get('username').hasError('minlength')">
+            <span style="color: red;"> Username requied atleast 6 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('username').hasError('maxlength')">
+            <span style="color: red;"> Username requied only 20 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('username').hasError('pattern')">
+            <span style="color: red;">alphanumerics are allowed.One small ,one capital alphabet and one number is
+              compulsary.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class=" form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter Password Here.." formControlName="password" class="form-control" />
+        <div *ngIf="registrationForm.get('password').errors && isSubmitted">
+          <div *ngIf="registrationForm.get('password').hasError('required')">
+            <span style="color: red;">Please Enter Password.</span>
+          </div>
+          <div *ngIf="registrationForm.get('password').hasError('minlength')">
+            <span style="color: red;">The password requied atleast 8 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('password').hasError('maxlength')">
+            <span style="color: red;">The password requied only 20 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('password').hasError('pattern')">
+            <span style="color: red;">alphanumerics are allowed.One small ,one capital alphabet,one number,one symbol
+              like !
+              @ # & is compulsary.</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class=" form-group">
+        <label>Address</label>
+        <input type="text" placeholder="Enter Your Address Here.." formControlName="address" class="form-control" />
+        <div *ngIf="registrationForm.get('address').errors  && isSubmitted">
+          <div *ngIf="registrationForm.get('address').hasError('required')">
+            <span style="color: red;">Please Enter Your Address.</span>
+          </div>
+          <div *ngIf="registrationForm.get('address').hasError('minlength')">
+            <span style="color: red;"> Address requied atleast 2 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('address').hasError('maxlength')">
+            <span style="color: red;">Address requied only 50 characters.</span>
+          </div>
+        </div>
+      </div>
+      <button type="submit" style="float: right;" class="btn btn-success">Register</button>
+      <button type="submit" style="float: left;" routerLink="../../home" class="btn btn-success">Go Back</button>
+  
+  </form>
+</div>
+</div>
+</body>

@@ -1,0 +1,87 @@
+<!-- Create Report Component -->
+
+<body>
+    <div class="col-md-6 offset-md-1">
+       <h1 >Add Report</h1>
+       <div class="container">
+           <form name="form" (ngSubmit)="addForm.form.valid && onSubmit()" #addForm="ngForm" novalidate>
+            
+            <div class="form-group">
+                <label for="patientId">Enter Patient Id<span>*</span></label>
+                <input type="number" class="form-control" [(ngModel)]="report.patientId" #patientId="ngModel"
+                    [ngClass]="{'is-invalid':addForm.submitted && patientId.invalid}" name="patientId"
+                    required>
+                <div class="invalid-feedback">
+                    <div>Patient Id is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="testId">Enter Test Id<span>*</span></label>
+                <input type="number" class="form-control" [(ngModel)]="report.testId" #testId="ngModel"
+                    [ngClass]="{'is-invalid':addForm.submitted && testId.invalid}" name="testId"
+                    required>
+                <div class="invalid-feedback">
+                    <div>Test Id is required</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                   <label for="reportDate">Enter Report Date<span>*</span></label>
+   
+                   <input type="date" class="form-control" [(ngModel)]="report.reportDate" #reportDate="ngModel"
+                       [ngClass]="{'is-invalid':addForm.submitted && reportDate.invalid}" name="reportDate"
+                       required>
+                   <div class="invalid-feedback">
+                       <div>Date is required</div>
+                   </div>
+   
+               </div>
+
+               <div class="form-group">
+                <label for="visualAcuity">Enter the Visual Acuity<span>*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="report.visualAcuity" #visualAcuity="ngModel"
+                    [ngClass]="{'is-invalid':addForm.submitted && visualAcuity.invalid}" name="visualAcuity" required>
+                <div class="invalid-feedback">
+                    <div>Visual Acuity is Required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="visualAcuityForNear">Enter the Visual Acuity For Near<span>*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="report.visualAcuityForNear" #visualAcuityForNear="ngModel"
+                    [ngClass]="{'is-invalid':addForm.submitted && visualAcuityForNear.invalid}" name="visualAcuityForNear" required>
+                <div class="invalid-feedback">
+                    <div>Visual Acuity for Near is Required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="visualAcuityForDistance">Enter the Visual Acuity For Distance<span>*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="report.visualAcuityForDistance" #visualAcuityForDistance="ngModel"
+                    [ngClass]="{'is-invalid':addForm.submitted && visualAcuityForDistance.invalid}" name="visualAcuityForDistance" required>
+                <div class="invalid-feedback">
+                    <div>Visual Acuity for Distance is Required</div>
+                </div>
+            </div>
+   
+               <div class="form-group">
+                   <label for="reportDescription">Enter the report Description<span>*</span></label>
+                   <input type="text" class="form-control" [(ngModel)]="report.description"
+                       #reportDescription="ngModel"
+                       [ngClass]="{'is-invalid':addForm.submitted && reportDescription.invalid}"
+                       name="reportDescription" required>
+                   <div class="invalid-feedback">
+                       <div>Description is Required</div>
+                   </div>
+                 </div>
+   
+            <button class="btn btn-success float-right" type="submit" style="margin:5px;">Add</button>
+           <button class = "btn btn-success float-left"  routerLink="../admin-service">Back</button>
+   
+              
+           </form>
+       </div>
+   
+   </div>
+   </body>

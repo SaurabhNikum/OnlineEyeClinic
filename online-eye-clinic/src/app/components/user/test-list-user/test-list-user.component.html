@@ -1,0 +1,37 @@
+<!-- Home Page Test List Component -->
+
+<div class="container">
+    <div class="col-sm-12">
+
+        <div >
+            <h1 style="text-align: center; margin-top: 0%;"> Test List</h1>
+        
+            
+            <input placeholder="Name" [(ngModel)]="name" type="text">
+            <button (click)="testByName()" type="button" class="btn-info">Search</button>
+            <button class="btn btn-info" style="margin-left: 10px;float: right;" routerLink="../home">Go Back</button>
+            <button class="btn btn-info" style="float: right;" (click)="getTests()">All Tests</button>
+           
+            
+
+        </div>
+    <table class = "table table-striped" style="text-align: center;margin-top: 20px;">
+        <thead>
+            <tr>
+                <th> Test Id</th>
+                <th> Test Name </th>
+                <th> Cost</th>
+                <th> Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let test of tests" >
+                <td> {{ test.testId }} </td>
+                <td> {{ test.name }} </td>
+                <td> {{ test.cost }} </td>
+                <td> {{ test.type }} </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+

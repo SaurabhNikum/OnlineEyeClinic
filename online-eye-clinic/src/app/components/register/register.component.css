@@ -1,0 +1,12 @@
+body
+{
+    background-image: url("https://icsi.edu/media/filer_public/8c/65/8c650152-d3eb-4ef1-888d-b248f20bfe20/student_3.jpg");
+    background-size: cover;
+    height: 900px;
+}
+
+label
+{
+    color: turquoise;
+    font-size: 20px;
+}

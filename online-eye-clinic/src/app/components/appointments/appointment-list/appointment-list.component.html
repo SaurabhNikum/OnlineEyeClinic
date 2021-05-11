@@ -1,0 +1,51 @@
+<div class="container col-sd-12">
+    <div class="col-sm-12">
+
+        <div class="jumbotron">
+            <h1 style="text-align: center; margin-top: 0%;"> Appointment List</h1>
+            <button class="btn btn-info" style="margin-left: 240px;" (click)="getAppointments()">All
+                Appointments</button>
+            <button class="btn btn-info" style="margin-left: 10px;" routerLink="../admin-service">Go Back</button>
+            <button class="btn btn-info" style="margin-left: 10px;" routerLink="../home">LogOut</button>
+            <br>
+            <label style=" font-size: large;margin-right: 10px; margin-left: 180px; padding-top: 10px;"
+                for="date">Search Appointment with Date</label>
+            <input [(ngModel)]="appDate" type="date">
+            <button (click)="appointmentByDate()" type="button" class="btn-info">Search</button>
+
+        </div>
+
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th> Id</th>
+                    <th> Patient Id </th>
+                    <th> Doctor Id</th>
+                    <th> Date</th>
+                    <th> Time</th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of appointments">
+                    <td> {{ appointment.id }} </td>
+                    <td> {{ appointment.patientId}} </td>
+                    <td> {{ appointment.doctorId }} </td>
+                    <td> {{ appointment.appointmentDate | date:fulldate }} </td>
+                    <td> {{ appointment.appointmentTime}} </td>
+                    <td>
+                        <button style="margin-left: 10px" class="btn btn-success"
+                            (click)="appointmentDetails(appointment.id)">Details</button>
+                        <button style="margin-left: 10px" class="btn btn-danger"
+                            (click)="deleteAppointment(appointment.id)">Delete</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+

@@ -1,0 +1,40 @@
+<!-- Patient List Component for Admin-->
+
+<body>
+<div class="container col-md-12">
+    <div class="jumbotron" style="height: 200px; margin-top: 0%;">
+        <h1 style="text-align: center; margin-top: 0%; font-size: 40px;"> Patient List</h1>
+        <button class="btn btn-info float-right" style="margin-left: 10px;margin-top: 13px;" routerLink="../home">LogOut</button>
+        <button class="btn btn-info float-right" style="margin-left: 10px;margin-top: 13px;" routerLink="../admin-service">Go Back</button>
+        <button class="btn btn-info float-right" style="margin-top: 13px;" (click)="getPatient()">Patient List</button>
+        <br>
+        <label style=" font-size: large;">Search Patient with Name</label>
+        <input [(ngModel)]="name" id="name" type="text">
+        <button (click)="patientByName()" class=" btn-info">Search</button>
+
+    </div>
+    <table class = "table table-striped" style="text-align: center;">
+        <thead>
+            <tr>
+                <th> Patient Id</th>
+                <th> Patient Name </th>
+                <th> Age </th>
+                <th> Mobile No. </th>
+                <th> Email </th>
+                <th> Address </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let patient of patients" >
+                <td> {{ patient.patientId }} </td>
+                <td> {{ patient.name }} </td>
+                <td> {{ patient.age }} </td>
+                <td> {{ patient.mobile }} </td>
+                <td> {{ patient.email }} </td>
+                <td> {{ patient.address }} </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+    

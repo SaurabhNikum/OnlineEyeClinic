@@ -1,0 +1,86 @@
+<!-- Admin Page Component -->
+
+<body>
+<div class="container-fluid col-sd-12">
+  <div  >
+    <h1 style=" font-size: 40px;padding-top: 20px;color: white;"> Welcome Admin </h1>
+    <h1 style="margin-left:20px;color: white;"> Manage Your Services </h1>
+   <button style="float:right; " class="btn btn-info" routerLink="../home">LogOut</button><br><br><br>
+    <div class="row" style="text-align: center;">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Doctor</h1>
+            <p class="card-text">
+             Manage services related to doctors.
+            </p>
+            <button type="button" style="margin-right: 5px;" routerLink="../doctor-list" class="btn btn-success">Doctor List</button>
+            <button type="button" routerLink="../create-doctor" class="btn btn-info">Add Doctor </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Appointment</h1>
+            <p class="card-text">
+              Manage services related to appointments.
+            </p>
+            <button type="button" style="margin-right: 5px;" routerLink="../appointment-list" class="btn btn-success">Accepted Appointment List</button>
+            <button type="button" routerLink="../appointment-request-list" class="btn btn-info">Pending Appointment Request </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Report</h1>
+            <p class="card-text">
+              Manage services related to reports.
+            </p>
+            <button type="button" style="margin-right: 5px;" routerLink="../report-list" class="btn btn-success">Report List</button>
+            <button type="button" routerLink="../create-report" class="btn btn-info">Create Report </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Patient</h1>
+            <p class="card-text">
+               See Details of Patient
+            </p>
+            <button type="button" style="margin-right: 5px;" routerLink="../patient-list" class="btn btn-success">Patient List</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Spectacle</h1>
+            <p class="card-text">
+                Manage services related to spectacles available.
+            </p>
+            <button type="button" style="margin-right: 5px;" routerLink="../spectacle-list" class="btn btn-success">Spectacle List</button>
+          <button type="button" routerLink="../create-spectacle" class="btn btn-info">Add Spectacle </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Test</h1>
+            <p class="card-text">
+                Manage services related to various test.
+            </p>
+            <button type="button" style="margin-right: 5px;" routerLink="../tests-list" class="btn btn-success">Test List</button>
+            <button type="button" routerLink="../create-tests" class="btn btn-info">Add Test </button>
+          </div>
+        </div>
+      </div>
+
+      
+  </div>
+  </div>
+  </div>
+</body>

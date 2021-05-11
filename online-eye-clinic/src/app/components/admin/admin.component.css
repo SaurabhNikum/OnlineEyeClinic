@@ -1,0 +1,15 @@
+
+
+body{
+  background-image: url("https://wallpaperaccess.com/full/16678.jpg");
+  background-size: cover;
+  height: 800px;
+}
+
+h1{
+  text-align: center;
+}
+
+.card { background-color: rgba(245, 245, 245, 0.747);
+margin-top: 10px; }
+

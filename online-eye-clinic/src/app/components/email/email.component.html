@@ -1,0 +1,33 @@
+<!-- Send Email Component after daccepting the appointment Request -->
+
+<body>
+<div class="container" style="margin-top: 0%;">
+  <div>
+    <h1 style="color:white;margin-left: 130px;font-size: x-large;">Send Email To Patient</h1>
+    <div class="card">
+        <form (ngSubmit)="doSubmitForm()">
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>To</mat-label>
+          <input name="to" [(ngModel)]="data.to" matInput>
+        </mat-form-field>
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Subject</mat-label>
+          <input name="subject" [(ngModel)]="data.subject" matInput >
+        </mat-form-field>
+        <mat-form-field  class="field" appearance="outline">
+          <mat-label>Message</mat-label>
+          <textarea style="height: 70px;" name="message" [(ngModel)]="data.message" matInput placeholder="Write your message here"></textarea>
+        </mat-form-field>
+
+        <mat-spinner *ngIf="flag" style="margin: auto;"></mat-spinner>
+
+        <div class="text-center">
+            <button [disabled]="flag" type="submit" class="btn btn-success" style="float: right;">Send</button>
+        </div>
+    </form>
+   
+      </div>
+ </div>
+</div>
+</body>
+

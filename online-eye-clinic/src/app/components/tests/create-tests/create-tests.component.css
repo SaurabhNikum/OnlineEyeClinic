@@ -1,0 +1,17 @@
+body{
+    background-image: url("https://t3.ftcdn.net/jpg/02/38/66/86/360_F_238668671_WWgORROGh1zn11G70TJkIksvjceOFZcb.jpg");
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+
+label{
+    font-weight: 300;
+}
+
+input{
+    font-weight: 400;
+}

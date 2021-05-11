@@ -1,0 +1,66 @@
+<!--Update Test Information Component-->
+
+ 
+ <body>
+    <div class="col-md-6 offset-md-1">
+       <h1 >Update Test Details</h1>
+       <div class="container">
+           <form name="form" (ngSubmit)="addForm.form.valid && onSubmit()" #addForm="ngForm" novalidate>
+
+            <div class="form-group">
+                <label> Test Id </label>
+                <input disabled type="number" class="form-control" id="testId" [(ngModel)]="tests.testId" name="testId">
+            </div>
+               <div class="form-group">
+                   <label for="testsName">Update Test Name<span>*</span></label>
+   
+                   <input type="text" class="form-control" [(ngModel)]="tests.name" #testsName="ngModel"
+                       [ngClass]="{'is-invalid':addForm.submitted && testsName.invalid}" name="testsName"
+                       required>
+                   <div class="invalid-feedback">
+                       <div>Name is required</div>
+                   </div>
+   
+               </div>
+
+               <div class="form-group">
+                <label for="testsType">Update the Test Type<span>*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="tests.type"
+                    #testsType="ngModel"
+                    [ngClass]="{'is-invalid':addForm.submitted && testsType.invalid}"
+                    name="testsType" required>
+                <div class="invalid-feedback">
+                    <div>Type is Required</div>
+                </div>
+
+            </div>
+   
+               <div class="form-group">
+                   <label for="testsDescription">Update the Test Description<span>*</span></label>
+                   <input type="text" class="form-control" [(ngModel)]="tests.description"
+                       #testsDescription="ngModel"
+                       [ngClass]="{'is-invalid':addForm.submitted && testsDescription.invalid}"
+                       name="testsDescription" required>
+                   <div class="invalid-feedback">
+                       <div>Description is Required</div>
+                   </div>
+   
+               </div>
+   
+               <div class="form-group">
+                   <label for="testsCost">Update the Test Cost<span>*</span></label>
+                   <input type="number" class="form-control" [(ngModel)]="tests.cost" #testsCost="ngModel"
+                       [ngClass]="{'is-invalid':addForm.submitted && testsCost.invalid}" name="testsCost" required>
+                   <div class="invalid-feedback">
+                       <div>Cost is Required</div>
+                   </div>
+               </div>
+               <button class="btn btn-success float-right" type="submit">Update</button>
+           <button class = "btn btn-success float-left"  (click)="goBack()">Back</button>
+   
+              
+           </form>
+       </div>
+   
+   </div>
+</body>

@@ -1,0 +1,34 @@
+<!--Test Details Component-->
+
+<body>
+<div class="container ">
+    <div class="col-sm-12">
+    <div >
+        <h1 style="text-align:left;padding-top: 30px;"> Test Details</h1>
+    <div style="text-align: left; padding-top: 10px;">
+   
+        <div>
+            <label> <b> Test Id: </b></label> {{tests.testId}}
+        </div>
+        <div>
+            <label> <b> Test Name: </b></label> {{tests.name}}
+        </div>
+        <div>
+            <label> <b> Test Type: </b></label> {{tests.type}}
+        </div>
+        <div>
+            <label> <b> Test Description: </b></label> {{tests.description}}
+        </div>
+        <div>
+            <label> <b> Cost: </b></label> {{tests.cost}}
+        </div>
+        <button style="text-align:center;" class="btn btn-info" (click)="goToTestsList()">Go Back</button>
+        <button style="margin-left: 10px;" class="btn btn-info" routerLink="../../admin-service">Admin Page</button>
+        <button style="margin-left: 10px;" class="btn btn-info" routerLink="../../home">LogOut</button>
+    </div>
+
+</div>
+</div>
+</div>
+</body>
+
